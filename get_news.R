@@ -1,5 +1,8 @@
 library(httr2)
-req <- request("https: /newsapi.org/v2/everything") >
+
+readRenviron('.Renviron')
+
+req <- request("https://newsapi.org/v2/everything") |>
   req_url_query(
     q = '`"data science"`',
     from = Sys.Date() - 1,
@@ -8,4 +11,7 @@ req <- request("https: /newsapi.org/v2/everything") >
   )
 
 resp <- req_perform(req)
-resp_body_json(resp)
+
+output_file_date <- lubridate::today() |> format('%Y-%m-%d')
+output_filename <- paste0("./data/", output_file_date, '.json')
+resp_body_json(resp) |> jsonlite::write_json(output_filename)
