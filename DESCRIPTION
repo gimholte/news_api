@@ -12,6 +12,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports: 
     httr2,
+    jsonlite,
     lubridate
 URL: https://github.com/gimholte/news_api
 BugReports: https://github.com/gimholte/news_api/issues
