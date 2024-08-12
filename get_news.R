@@ -1,7 +1,5 @@
 library(httr2)
 
-readRenviron('.Renviron')
-
 req <- request("https://newsapi.org/v2/everything") |>
   req_url_query(
     q = '`"data science"`',
